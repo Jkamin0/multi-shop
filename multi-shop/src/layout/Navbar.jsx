@@ -16,13 +16,13 @@ const Navbar = () => {
     >
       <Toolbar />
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItem component={Link} to="/">
           <ListItemText primary="Products" />
         </ListItem>
-        <ListItem button component={Link} to="/login">
+        <ListItem component={Link} to="/login">
           <ListItemText primary="Login" />
         </ListItem>
-        <ListItem button component={Link} to="/admin-products">
+        <ListItem component={Link} to="/admin-products">
           <ListItemText primary="Admin Products" />
         </ListItem>
       </List>

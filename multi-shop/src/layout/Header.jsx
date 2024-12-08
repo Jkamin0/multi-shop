@@ -9,7 +9,7 @@ const Header = () => {
     >
       <Toolbar>
         <Typography variant="h6" noWrap>
-          My Application
+          Young Navy
         </Typography>
       </Toolbar>
     </AppBar>
