@@ -29,7 +29,7 @@ const ProductGridPage = () => {
     };
 
     fetchProducts();
-  }, [api]);
+  }, []);
 
   if (loading) {
     return (
