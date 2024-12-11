@@ -19,6 +19,10 @@ const useApi = () => {
     return api.get("/products/published?groupBy=product_type");
   }, []);
 
+  const searchPublishedProducts = useCallback((params = {}) => {
+    return api.get("/products/published", { params });
+  }, []);
+
   const updateProduct = useCallback((productId, productData) => {
     return api.put(`/products/${productId}`, { product: productData });
   }, []);
@@ -36,6 +40,7 @@ const useApi = () => {
     getAllPublishedProducts,
     getAllProducts,
     getPublishedProductsGroupedByType,
+    searchPublishedProducts,
     updateProduct,
     getAdminSettings,
     updateAdminSettings,
