@@ -8,26 +8,45 @@ import {
   Button,
 } from "@mui/material";
 
-const ProductCard = ({ product }) => {
-  const { title, price, description, image } = product;
+const ProductCard = ({ product, onAddToCart }) => {
+  const { title, price, image, inventory } = product;
 
   return (
-    <Card sx={{ maxWidth: 350 }}>
-      <CardMedia component="img" height="140" image={image} alt={title} />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+    <Card className="flex flex-col h-full max-w-sm">
+      <CardMedia
+        component="img"
+        height="140"
+        image={image}
+        alt={title}
+        className="object-cover"
+      />
+      <CardContent className="flex-grow flex flex-col justify-between p-4">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          className="break-words"
+        >
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
-        <Typography variant="body1" color="text.primary" sx={{ mt: 1 }}>
+        <Typography variant="body1" color="text.primary" className="mt-2">
           ${price.toFixed(2)}
         </Typography>
+        {inventory > 0 && (
+          <Typography variant="body2" color="text.primary" className="mt-2">
+            Inventory: {inventory}
+          </Typography>
+        )}
       </CardContent>
-      <CardActions>
-        <Button size="small" color="primary">
-          Add to Cart
+      <CardActions className="p-4">
+        <Button
+          size="small"
+          color="primary"
+          onClick={onAddToCart}
+          disabled={inventory <= 0}
+          className="w-full"
+        >
+          {inventory > 0 ? "Add to Cart" : "Out of Stock"}
         </Button>
       </CardActions>
     </Card>
